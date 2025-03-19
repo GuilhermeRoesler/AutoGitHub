@@ -38,7 +38,7 @@ if not exist ".git" (
 )
 
 REM Setting scheduler
-call src\schedule_task.bat
+@REM call src\schedule_task.bat
 
 REM Check if we already ran today
 call src\verify_date.bat
