@@ -37,6 +37,9 @@ if not exist ".git" (
     call src\git_init.bat
 )
 
+REM Setting scheduler
+call src\schedule_task.bat
+
 REM Check if we already ran today
 call src\verify_date.bat
 
@@ -64,8 +67,5 @@ if "%RUN_TODAY%"=="1" (
         echo [%date% %time%] Already ran today. Skipping execution >> !LOG_FILE!
     )
 )
-
-REM Setting scheduler
-call src\schedule_task.bat
 
 endlocal
