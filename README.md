@@ -7,6 +7,14 @@ Windows automation that syncs a small GitHub repo **at most once per UTC day**, 
 
 > **Honest scope:** the old Batch edition existed mainly to paint the contribution graph with synthetic commits. This rewrite defaults to **`contentMode: "notes"`** — it commits changes to `data/notes.md` (real notes / status). Synthetic placeholder commits still exist for compatibility but are discouraged.
 
+## Disclaimer
+
+This project is an **unofficial** personal automation tool and is **not** affiliated with, endorsed by, or connected to GitHub, Inc. (or Microsoft).
+
+You are solely responsible for how you use AutoGitHub, including compliance with [GitHub's Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service), Acceptable Use policies, and any employer or school rules. Using `contentMode: "synthetic"` (or any setup) mainly to fabricate activity on the contribution graph may violate those terms and can lead to account restrictions — prefer meaningful commits via **notes** mode.
+
+The software is provided **as is**, without warranty of any kind. Automating `git push` against your credentials can modify remote repositories; review your config, prefer `dryRun` when testing, and use at your own risk.
+
 ## Requirements
 
 - Windows PowerShell 5.1+ (or PowerShell 7+)
