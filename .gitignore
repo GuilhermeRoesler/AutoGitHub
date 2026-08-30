@@ -1,0 +1,20 @@
+# Local configuration (use settings.example.json as template)
+config/settings.json
+
+# Runtime data and logs
+logs/
+data/*
+!data/.gitkeep
+!data/notes.md
+
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# PowerShell / test artifacts
+*.log
+TestResults/

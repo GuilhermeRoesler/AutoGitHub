@@ -1,0 +1,18 @@
+{
+  "githubUrl": "https://github.com/YOUR_USER/AutoGitHub.git",
+  "branch": "main",
+  "commitFile": "data/commit_data.txt",
+  "maxCommits": 5,
+  "dateTracker": "data/last_update.txt",
+  "enableLogging": true,
+  "logFile": "logs/autogithub.log",
+  "commitMessages": [
+    "chore: daily workspace sync",
+    "docs: refresh local tracker",
+    "chore: update project data"
+  ],
+  "contentMode": "notes",
+  "notesFile": "data/notes.md",
+  "dryRun": false,
+  "allowForcePush": false
+}
