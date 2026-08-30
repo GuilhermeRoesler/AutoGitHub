@@ -297,8 +297,9 @@ Created on $(Get-UtcTodayString) (UTC).
 
     # Stage intentional project files only - never blind git add .
     $toAdd = @(
-        'README.md', 'LICENSE', '.gitignore', 'run.ps1', 'run.bat',
-        'config/settings.example.json', 'src', 'tests', 'data/.gitkeep', 'data/notes.md'
+        'README.md', 'LICENSE', '.gitignore', 'run.ps1', 'run.bat', 'install.bat',
+        'init_on_startup.vbs', 'config/settings.example.json', 'src', 'tests',
+        'installer', 'data/.gitkeep', 'data/notes.md'
     ) | Where-Object { Test-Path -LiteralPath (Join-Path $root $_) }
 
     if ($toAdd.Count -gt 0) {

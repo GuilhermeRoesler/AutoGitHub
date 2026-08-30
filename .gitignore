@@ -1,5 +1,6 @@
 # Local configuration (use settings.example.json as template)
 config/settings.json
+install-manifest.json
 
 # Runtime data and logs
 logs/

@@ -12,7 +12,38 @@ Windows automation that syncs a small GitHub repo **at most once per UTC day**, 
 - Windows PowerShell 5.1+ (or PowerShell 7+)
 - Git installed and authenticated for `git push` (Credential Manager or SSH)
 
-## Quick start
+## Quick start (installer — recommended)
+
+```powershell
+git clone https://github.com/GuilhermeRoesler/AutoGitHub.git
+cd AutoGitHub
+.\install.bat
+```
+
+Or from PowerShell:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\installer\Install.ps1
+```
+
+The installer copies the app to `%LOCALAPPDATA%\AutoGitHub`, writes `config\settings.json`, creates **Start Menu** shortcuts, and (by default) registers the daily Task Scheduler job.
+
+Silent / non-interactive example:
+
+```powershell
+.\installer\Install.ps1 -NonInteractive `
+  -GitHubUrl 'https://github.com/YOU/your-repo.git' `
+  -CreateDesktopShortcut `
+  -ScheduleTime '09:00'
+```
+
+Uninstall (Start Menu → **Uninstall AutoGitHub**, or):
+
+```powershell
+& "$env:LOCALAPPDATA\AutoGitHub\installer\Uninstall.ps1"
+```
+
+## Quick start (portable / from clone)
 
 ```powershell
 git clone https://github.com/GuilhermeRoesler/AutoGitHub.git
@@ -64,16 +95,20 @@ Writes placeholder content to `commitFile` up to `maxCommits` times. Kept for co
 
 ## Scheduling
 
+The installer registers the task for you. From a portable clone:
+
 ```powershell
 powershell -NoProfile -File .\src\Register-Schedule.ps1
 ```
 
-Creates **AutoGitHub Daily Run** at 09:00 with an explicit **WorkingDirectory** set to the repo root (fixes the old Batch bug where relative paths broke under Task Scheduler).
+Creates **AutoGitHub Daily Run** at 09:00 with an explicit **WorkingDirectory** set to the app/repo root (fixes the old Batch bug where relative paths broke under Task Scheduler).
 
 ### Startup (hidden)
 
+During install you can opt into a Startup-folder shortcut. Manually:
+
 1. `Win + R` → `shell:startup`
-2. Shortcut to `init_on_startup.vbs` (sets working directory, then runs `run.bat` hidden)
+2. Shortcut to `init_on_startup.vbs` in the install folder (sets working directory, then runs `run.bat` hidden)
 
 ## Tests
 
